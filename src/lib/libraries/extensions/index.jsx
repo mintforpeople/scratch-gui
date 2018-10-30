@@ -21,6 +21,25 @@ export default [
     {
         name: (
             <FormattedMessage
+                defaultMessage="Robobo"
+                description="Robobo 3.0 Extension"
+                id="gui.extension.robobo.name"
+            />
+        ),
+        extensionId: 'robobo',
+        iconURL: musicImage,
+        description: (
+            <FormattedMessage
+                defaultMessage="Play instruments and drums."
+                description="Description for the 'Music' extension"
+                id="gui.extension.test.description"
+            />
+        ),
+        featured: true
+    },
+    {
+        name: (
+            <FormattedMessage
                 defaultMessage="Music"
                 description="Name for the 'Music' extension"
                 id="gui.extension.music.name"
