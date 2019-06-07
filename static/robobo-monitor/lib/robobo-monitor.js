@@ -418,7 +418,13 @@ function updateSensors() {
     setElementHTML("color-sensor-custom-size", replaceUndefined(rem.getBlobSize("custom")));
 
       // update qr sensor values
-    setElementHTML("qr-sensor-id", replaceUndefined(rem.getQRId()));
+
+    var qrId = replaceUndefined(rem.getQRId());
+    if (qrId.length > 25) {
+      qrId = qrId.substring(0,24) + '...';
+    }
+
+    setElementHTML("qr-sensor-id", qrId);
     setElementHTML("qr-sensor-x", replaceUndefined(rem.getQRCoord("x")));
     setElementHTML("qr-sensor-y", replaceUndefined(rem.getQRCoord("y")));
     setElementHTML("qr-sensor-size", replaceUndefined(rem.getQRDist()));
