@@ -1,0 +1,7 @@
+[
+  {
+    "id": "gui.menuBar.roboboIP",
+    "description": "Robob IP Address to establish the connection",
+    "defaultMessage": "Robobo IP"
+  }
+]
