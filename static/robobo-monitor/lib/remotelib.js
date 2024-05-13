@@ -29,6 +29,7 @@
 function Remote(ip,passwd){
   this.ip = ip.trim();
   this.port = 40404;
+  this.secureport = 44304;
 
   //Last keep-alive message timestamp
   this.lastKeepAliveTime = 0;
