@@ -140,8 +140,14 @@ Remote.prototype = {
 
     this.connectionState = Remote.ConnectionStateEnum.CONNECTING;
 
-    //console.log((location.protocol === 'http:' ? 'ws://' : 'wss://') + this.ip + ":" + this.port)
-    this.ws = new WebSocket('ws://' + this.ip + ":" + this.port);
+    var connString = "";
+    if (this.ip === "" || this.ip === "0.0.0.0" || this.ip === "127.0.0.1") this.ip = "localhost";
+    if (location.protocol === "http" || this.ip.toLowerCase() === "localhost"){
+      connString = "ws://" + this.ip + ":" + this.port;
+    } else {
+      connString = "wss://" + this.ip + ":" + this.secureport;
+    }
+    this.ws = new WebSocket(connString);
 
     this.ws.onopen = function() {
       console.log("Connection Stablished");
