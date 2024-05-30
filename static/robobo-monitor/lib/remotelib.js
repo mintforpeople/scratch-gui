@@ -143,7 +143,7 @@ Remote.prototype = {
 
     var connString = "";
     if (this.ip === "" || this.ip === "0.0.0.0" || this.ip === "127.0.0.1") this.ip = "localhost";
-    if (location.protocol === "http" || this.ip.toLowerCase() === "localhost"){
+    if (location.protocol === "http:" || location.protocol === "http" || this.ip.toLowerCase() === "localhost"){
       connString = "ws://" + this.ip + ":" + this.port;
     } else {
       connString = "wss://" + this.ip + ":" + this.secureport;
