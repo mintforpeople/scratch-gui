@@ -65,7 +65,8 @@ class RoboboConnectionForm extends React.Component {
                     onClick={this.handleDisconnectRobobo}
                 >
                     Disconnect
-                </Button>                
+                </Button>
+                <a href="https://education.theroboboproject.com/en/scratch3/initial-setup" target="_blank" rel="noopener noreferrer">Help</a>    
             </div>   
        );
     }
