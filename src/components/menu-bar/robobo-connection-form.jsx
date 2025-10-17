@@ -66,7 +66,11 @@ class RoboboConnectionForm extends React.Component {
                 >
                     Disconnect
                 </Button>
-                <a href="https://education.theroboboproject.com/en/scratch3/initial-setup" target="_blank" rel="noopener noreferrer">Help</a>    
+                <a href="https://education.theroboboproject.com/en/scratch3/initial-setup"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.helpLink}>
+                Help</a>    
             </div>   
        );
     }

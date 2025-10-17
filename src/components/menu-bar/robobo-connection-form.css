@@ -63,3 +63,23 @@ can set a width for example or what it should do in a flex box (eg. grow).
     height: 30px;
     margin-left: 5px;
 }
+
+.menuBarItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.helpLink {
+    color: $ui-white;
+    font-size: .75rem;
+    margin-left: 16px;
+}
+
+.helpLink:hover {
+    color: $ui-white;
+}
+
+.helpLink:visited {
+    color: $ui-white;
+}
