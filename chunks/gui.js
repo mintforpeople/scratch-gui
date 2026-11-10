@@ -102,7 +102,7 @@ if (Object(_lib_supported_browser__WEBPACK_IMPORTED_MODULE_8__["default"])()) {
   var WrappedBrowserModalComponent = Object(_lib_app_state_hoc_jsx__WEBPACK_IMPORTED_MODULE_6__["default"])(_components_browser_modal_browser_modal_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], true /* localesOnly */);
   var handleBack = function handleBack() {};
   // eslint-disable-next-line react/jsx-no-bind
-  react_dom__WEBPACK_IMPORTED_MODULE_5___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(WrappedBrowserModalComponent, {
+  react_dom__WEBPACK_IMPORTED_MODULE_5___default.a.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(WrappedBrowserModalComponent, {
     onBack: handleBack
   }), appTarget);
 }

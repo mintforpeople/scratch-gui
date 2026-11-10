@@ -134,7 +134,7 @@ var ConnectedPlayer = Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"]
 var WrappedPlayer = Object(redux__WEBPACK_IMPORTED_MODULE_5__["compose"])(_lib_app_state_hoc_jsx__WEBPACK_IMPORTED_MODULE_9__["default"], _lib_hash_parser_hoc_jsx__WEBPACK_IMPORTED_MODULE_8__["default"])(ConnectedPlayer);
 var appTarget = document.createElement('div');
 document.body.appendChild(appTarget);
-react_dom__WEBPACK_IMPORTED_MODULE_3___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedPlayer, {
+react_dom__WEBPACK_IMPORTED_MODULE_3___default.a.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedPlayer, {
   isPlayerOnly: true
 }), appTarget);
 
