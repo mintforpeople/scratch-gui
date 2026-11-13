@@ -940,6 +940,48 @@ Remote.prototype = {
   /* VISION-BASED INTERACTION FUNCTIONS   *
   /***************************************/
 
+
+  getObjectLabel: function(objectType){
+    if ((objectType == this.statusmap.get("objectlabel")) || (objectType == "any")) {
+      return this.statusmap.get("objectlabel");
+    } else {
+      return ""
+    }
+  },
+
+  getObjectCoord: function(objectType, axis){
+    if ((objectType == this.statusmap.get("objectlabel")) || (objectType == "any")) {
+      return this.statusmap.get("object" + axis);
+    } else {
+      return 0
+    }
+  },
+
+  // For height and width (currently not used)
+  getObjectDims: function(objectType, dim){
+    if ((objectType == this.statusmap.get("objectlabel")) || (objectType == "any")) {
+      return this.statusmap.get("object" + dim);
+    } else {
+      return 0
+    }
+  },
+
+  getObjectSize: function(objectType){
+    if ((objectType == this.statusmap.get("objectlabel")) || (objectType == "any")) {
+      return this.statusmap.get("objectheight") * this.statusmap.get("objectwidth")
+    } else {
+      return 0
+    }
+  },
+
+  getObjectConfidence: function(objectType){
+    if ((objectType == this.statusmap.get("objectlabel")) || (objectType == "any")) {
+      return this.statusmap.get("objectconfidence");
+    } else {
+      return 0
+    }
+  },
+
   /** Activates/deactivates the detection of each of the 4 different color-blobs supported */
   configureBlobDetection: function (red, green, blue, custom) {
     var message = JSON.stringify({
@@ -1602,6 +1644,28 @@ Remote.prototype = {
       this.statusmap.set("qrid",'');        
 
       this.callbackmap.get("onQRDisappear")();
+    }
+
+    //OBJECT DETECTION
+    else if (msg.name == "DETECTED_OBJECT") {
+      this.statusmap.set("detectedobjectmessage", JSON.stringify(msg))
+
+      // Only trigger onObjectAppears if the label ! = "" and is diff from the previous
+      if ((msg.value["label"] != this.statusmap.get("objectlabel")) && (msg.value["label"] != "")) {
+        this.callCallback("onObjectAppear")
+      };
+
+      this.statusmap.set("objectid", msg.value["id"]);
+      this.statusmap.set("objectlabel", msg.value["label"]);
+
+      this.statusmap.set("objectx", parseInt(msg.value["posx"]));
+      this.statusmap.set("objecty", parseInt(msg.value["posy"]));
+      this.statusmap.set("objectwidth", parseInt(msg.value["width"]));
+      this.statusmap.set("objectheight", parseInt(msg.value["height"]));
+      this.statusmap.set("objectconfidence", parseFloat(msg.value["confidence"]));
+
+      this.callCallback("onNewObject");
+
     }
 
     else {

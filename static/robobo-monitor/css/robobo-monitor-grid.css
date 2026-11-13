@@ -353,3 +353,31 @@
 .qr {
   height: auto;
 }
+
+/* object recognition */
+.object-recognition-container {
+  height: 90px;
+  width: 190px;
+  margin: auto;
+  padding: 0px;
+}
+
+.object-recognition-text {
+  width: 115px;
+  text-align: left;
+  position: relative;
+  float: left;
+}
+
+.object-recognition-visual {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  float: left;
+  margin: 2px;
+  margin-top:10px;
+  text-align:center;
+  /*max font-size: around 50px*/
+  font-size:40px;
+  padding-top:7px;
+}
