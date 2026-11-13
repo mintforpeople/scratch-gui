@@ -50,6 +50,36 @@ var wheelRightSpeedGauge;
 
 var clapNotificationCounter = 0;
 
+// map from object detection labels to emoji UTF values
+const emojiMap = new Map();
+emojiMap.set("robobo", "&#x1F916"); //robot
+emojiMap.set("bowl", "&#x1F963"); //bowl with spoon
+emojiMap.set("laptop", "&#x1F4BB"); //laptop
+emojiMap.set("clock", "&#x23F0"); //alarm clock
+emojiMap.set("scissors", "&#x2702"); //scissors
+emojiMap.set("fork", "&#x1F374"); //fork and knife
+emojiMap.set("knife", "&#x1F52A");//kitchen knife
+emojiMap.set("spoon", "&#x1F944"); //spoon
+emojiMap.set("cat", "&#x1F431"); //cat face
+emojiMap.set("dog", "&#x1F436"); //dog face
+emojiMap.set("remote control", "&#x1F3AE"); //video game
+emojiMap.set("keyboard", "&#x2328"); //keyboard
+emojiMap.set("book", "&#x1F4D5"); //closed book
+emojiMap.set("person", "&#x1F9D1"); //person
+emojiMap.set("car", "&#x1F698"); //oncoming automobile
+emojiMap.set("traffic light", "&#x1F6A6"); //vertical traffic light
+emojiMap.set("stop sign", "&#x1F6D1"); //stop sign
+emojiMap.set("bottle", "&#x1F37C"); //baby bottle
+emojiMap.set("glass of wine", "&#X1F377"); //wine glass
+emojiMap.set("cup", "&#x1F964"); //cup with straw
+emojiMap.set("banana", "&#x1F34C"); //banana
+emojiMap.set("apple", "&#x1F34E"); //red apple
+emojiMap.set("orange", "&#x1F34A"); //tangerine
+emojiMap.set("mouse", "&#x1F5B1"); //computer mouse
+emojiMap.set("cell phone", "&#x1F4F1"); //mobile phone
+emojiMap.set("vase", "&#x1F3FA"); //amphora
+emojiMap.set("", ""); //blank for no object found
+
 /* Change color of claps element and  decrement in 1 the notification counter */
 
 
@@ -429,6 +459,15 @@ function updateSensors() {
     setElementHTML("qr-sensor-y", replaceUndefined(rem.getQRCoord("y")));
     setElementHTML("qr-sensor-size", replaceUndefined(rem.getQRDist()));
   
+
+    // update object recognition values
+    setElementHTML("object-recognition-label", replaceUndefined(rem.getObjectLabel('any')));
+    const objectPos = rem.getObjectCoord('any', 'x') + ", " + rem.getObjectCoord('any', 'y');
+    setElementHTML("object-recognition-pos", replaceUndefined(objectPos));
+    setElementHTML("object-recognition-size", replaceUndefined(rem.getObjectSize('any')));
+    setElementHTML("object-recognition-confidence", replaceUndefined(formatNumber(rem.getObjectConfidence('any'), 3)));
+    const objectIcon = emojiMap.get(rem.getObjectLabel('any'))
+    setElementHTML("object-recognition-icon", replaceUndefined(objectIcon))
 
     // update IR sensors raw value
     var errorValue = 65535; // If the sensor is broken, this value is received.

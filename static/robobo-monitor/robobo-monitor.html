@@ -82,7 +82,7 @@
           <div class="card-title">IR SENSORS RAW</div>
           <div class="card-icon">R</div>
           <div class="card-content">
-            <i id="ir-sensor-raw">
+            <id id="ir-sensor-raw">
               <div class="ir-block-container">
                 <div class="ir-block-large">
                   Front-C: <span class="value" id="ir-sensor-raw-front-c"></span>
@@ -109,7 +109,7 @@
                   Back-C: <span class="value" id="ir-sensor-raw-back-c"></span>
                 </div>
               </div>
-            </i>
+            </id>
           </div>
         </div>
       </div>
@@ -192,7 +192,7 @@
               <id id="facedist-sensor">Distance: <span class="value" id="facedist-sensor-value"></span></id>
             </div>
             <id id="facepos-sensor">
-              <div class="label-value">Position (x,y): <span class="value" id="facepos-sensor-value"></span></div>
+              <div class="label-value">Position x,y: <span class="value" id="facepos-sensor-value"></span></div>
             </id>
           </div>
         </div>
@@ -303,6 +303,30 @@
               <div class="label-value">Brightness: <span class="value" id="brightness-sensor-value"></span></div>
             </id>
           </div>
+        </div>
+      </div>
+
+      <div class="item" data-id="14">
+        <div class="item-content">
+          <div class="card-left-icon"><img src="img/icon.png"></div>
+          <div class="card-title">OBJECT RECOGNITION</div>
+          <div class="card-icon">R</div>
+          <div class="card-content">
+            <id id="object-recognition">
+              <div class="object-recognition-container">
+                <div class="object-recognition-text">
+                  <div class="label-value">Label: <span class="value" id="object-recognition-label"></span></div>
+                  <div class="label-value">x,y: <span class="value" id="object-recognition-pos"></span></div>
+                  <div class="label-value">Size: <span class="value" id="object-recognition-size"></span></div>
+                  <div class="label-value">Confidence: <span class="value" id="object-recognition-confidence"></span></div>
+                </div>
+                <div class="object-recognition-visual">
+                  <span id="object-recognition-icon"></span>
+                </div>
+              </div>
+            </id>
+          </div>
+
         </div>
       </div>
     </div>
